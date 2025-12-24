@@ -2,58 +2,35 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Logo</title>
-
+    <title>Sound</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
         body {
-            background: #000;
-            color: #fff;
+            margin: 0;
+            background: black;
+            color: white;
             height: 100vh;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            cursor: pointer;
-            font-family: Arial, sans-serif;
+            font-family: Arial;
         }
-
-        img {
-            max-width: 200px;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
-        }
-
-        body:hover img {
-            opacity: 1;
+        a {
+            color: #aaa;
+            text-decoration: none;
+            margin-top: 20px;
         }
     </style>
 </head>
-<body onclick="playAndGo()">
+<body>
 
-    <!-- Логотип -->
-    <img src="logo.png" alt="Logo">
+<audio id="player" src="zvuk-domofona.mp3" loop></audio>
 
-    <!-- Звук -->
-    <audio id="sound" src="zvuk-domofona.mp3""soun.mp3
+<button onclick="document.getElementById('player').play()">
+    ▶ PLAY
+</button>
 
-    <script>
-        function playAndGo() {
-            const audio = document.getElementById("sound");
-
-            // запускаем звук
-            audio.play();
-
-            // небольшая задержка, чтобы звук начал играть
-            setTimeout(() => {
-                window.location.href = "https://t.me/username";
-            }, 200);
-        }
-    </script>
+<a href="https://t.me/username">Контакты</a>
 
 </body>
 </html>
