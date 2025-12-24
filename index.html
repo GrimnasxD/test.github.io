@@ -5,20 +5,17 @@
     <title>Logo</title>
 
     <style>
-        /* Убираем стандартный мусор браузера */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        /* Весь экран */
         html, body {
             width: 100%;
             height: 100%;
         }
 
-        /* Кнопка на весь экран */
         body {
             background: #000;
             display: flex;
@@ -28,16 +25,22 @@
             user-select: none;
         }
 
-        /* Логотип */
-        img {
-            width: 200px;
-            opacity: 0.9;
-            transition: opacity 0.3s ease;
-            pointer-events: none; 
-            /* важно: чтобы клик проходил сквозь картинку */
+        /* SVG контейнер */
+        .logo {
+            width: 75vw;
+            height: 75vh;
+            max-width: 75vw;
+            max-height: 75vh;
+            pointer-events: none;
         }
 
-        body:hover img {
+        svg {
+            width: 100%;
+            height: 100%;
+            opacity: 0.9;
+        }
+
+        body:hover svg {
             opacity: 1;
         }
     </style>
@@ -46,29 +49,24 @@
 
     <!-- SVG логотип -->
     <div class="logo">
-        <img src="Grimnas3500Avatar.svg" alt="Logo" width="100%" height="100%">
+        <img src="logo.svg" alt="Logo" width="100%" height="100%">
     </div>
 
     <!-- Звук -->
-    <audio id="audio" src="zvuk-domofona.mp3"></audio>
+    <audio id="audio" src="sound.mp3"></audio>
 
     <script>
-        // Флаг, чтобы клик сработал только один раз
         let activated = false;
 
-        // Ловим клик ВЕЗДЕ
         document.body.addEventListener("click", () => {
             if (activated) return;
             activated = true;
 
             const audio = document.getElementById("audio");
-
-            // Запуск звука
             audio.play();
 
-            // Переход по ссылке
             setTimeout(() => {
-                window.location.href = "https://t.me/ananasQj";
+                window.location.href = "https://t.me/username";
             }, 200);
         });
     </script>
