@@ -25,47 +25,49 @@
             user-select: none;
         }
 
+        /* SVG контейнер */
         .logo {
-            width: 100vw;
-            height: 100vh;
+            width: 75vw;
+            height: 75vh;
+            max-width: 75vw;
+            max-height: 75vh;
             pointer-events: none;
         }
 
-        img {
+        svg {
             width: 100%;
             height: 100%;
+            opacity: 0.9;
+        }
+
+        body:hover svg {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
 
+    <!-- SVG логотип -->
     <div class="logo">
-        <img src="logo.svg" alt="Logo">
+        <img src="logo.svg" alt="Logo" width="100%" height="100%">
     </div>
 
-    <audio id="audio" preload="auto">
-        <source src="song.mp3" type="audio/mpeg">
-    </audio>
+    <!-- Звук -->
+    <audio id="audio" src="sound.mp3"></audio>
 
     <script>
         let activated = false;
 
-        document.body.addEventListener("click", async () => {
+        document.body.addEventListener("click", () => {
             if (activated) return;
             activated = true;
 
             const audio = document.getElementById("audio");
+            audio.play();
 
-            try {
-                await audio.play(); // ждём реального старта
-            } catch (e) {
-                console.log("Браузер заблокировал звук", e);
-            }
-
-            // даём звуку пожить
             setTimeout(() => {
-                window.location.href = "https://t.me/ananasQj";
-            }, 600);
+                window.location.href = "https://t.me/username";
+            }, 200);
         });
     </script>
 
